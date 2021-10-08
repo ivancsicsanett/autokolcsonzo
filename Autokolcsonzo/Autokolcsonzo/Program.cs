@@ -118,7 +118,17 @@ namespace Kolcsonzo
 			return auto;
 		}
 
+		public KolcsonozhetoAuto randomHasznaltAuto()
+        {
+			KolcsonozhetoAuto auto = randomUjAuto(1);
 
+			if(auto.getGyartasEve() == 2021)
+            {
+				auto.setGyartasiido(auto.getGyartasEve() - 4);
+            }
+			auto.setMegtettKm(362000);
+			return auto;
+        }
 
 
 	}
