@@ -131,7 +131,16 @@ namespace Kolcsonzo
 			auto.setMegtettKm(362000);
 			return auto;
         }
+		public static KolcsonozhetoAuto adatBekeres()
+        {
+			/*string rszam, string marka, int ev,
 
+								 int utasok, int tartaly, double lpkm,
+
+								  char kat)
+			*/
+
+        }
 
 	}
 }
