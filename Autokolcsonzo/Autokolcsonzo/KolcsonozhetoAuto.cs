@@ -77,7 +77,7 @@ namespace Kolcsonzo
 
         public void setBerelheto(bool szabad) { berelheto = szabad; }
 
-
+        public void setGyartasiido(int ev) { gyartasEve = ev; }
 
         /*
          * tagfüggvények
