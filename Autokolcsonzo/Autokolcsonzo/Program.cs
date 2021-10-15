@@ -31,8 +31,9 @@ namespace Kolcsonzo
 			flotta[4] = randomUjAuto(4);
 			flotta[5] = randomHasznaltAuto(5);
 			flotta[6] = randomHasznaltAuto(6);
+			flotta[7] = adatBekeres();
 
-			for (int i = 0; i <= 7; i++)
+			for (int i = 0; i <= 8; i++)
 			{
 
 				Console.Write(flotta[i].getRendszam() + " ; ");
@@ -139,8 +140,100 @@ namespace Kolcsonzo
 
 								  char kat)
 			*/
+			string rszam, ujrszam;
+			bool joE = false;
 
-        }
+			do
+			{
+				do
+				{
+					Console.WriteLine("Add meg az autó rendszámát!: ");
+					Console.WriteLine("A rendszám formátuma: kkk-sss. Pl.: ABC-123");
+
+					rszam = Console.ReadLine();
+
+				} while (rszam.Length < 7);
+
+
+				ujrszam = rszam.Substring(0, 3).ToUpper() + rszam.Substring(3, 4);
+
+				int i = 0;
+				while (ujrszam[i] >= 'A' && ujrszam[i] <= 'Z')
+				{
+					i++;
+				}
+
+				if (i >= 3) joE = true;
+
+				if (ujrszam[3] != '-') joE = false;
+
+
+				/*
+								i = 4;
+								while (ujRszam[i] >= '0' && ujRszam[i] <= '9')
+								{
+									i++;
+								}
+
+								if (i >= 7) joE = true;
+				*/
+
+				int szamTeszt = Convert.ToInt32(ujrszam.Substring(4, 3));
+
+			} while (!joE);
+
+			string marka = "";
+			do
+			{
+				Console.WriteLine("add meg az autó márkáját :");
+			}
+
+			while ( marka.Length<3  );
+
+
+
+
+
+			int gyev=0;
+			do
+			{
+				Console.WriteLine("add meg az autó gyártási évét :");
+				gyev = Convert.ToInt32(Console.ReadLine());
+			} 
+			while (1999>gyev || gyev>2021);
+			int utasok = 0;
+			do
+			{
+				Console.WriteLine("add meg az utasok számát  :");
+				utasok= Convert.ToInt32(Console.ReadLine());
+			}
+			while (2 > utasok || utasok > 9);
+			int tartaly = 0;
+			do
+			{
+				Console.WriteLine("add meg az autó tartály méretét :");
+				tartaly = Convert.ToInt32(Console.ReadLine());
+			}
+			while (12 > tartaly || tartaly > 32);
+			double fogyasztás = 0.0;
+			do
+			{
+				Console.WriteLine("add meg az autó fogyasztást:");
+				fogyasztás = Convert.ToDouble(Console.ReadLine());
+			}
+			while ( 4.2 > fogyasztás || fogyasztás> 10.8 );
+			char kategoria = 'Z';
+			do
+			{
+				Console.WriteLine("add meg az autó kategoriáját:");
+				Console.WriteLine("Lehetséges értékek: A, B, C");
+				kategoria= (Console.ReadLine().ToUpper())[0];
+			}
+			while ( kategoria !='A' && kategoria !='B'  && kategoria !='C' );
+			KolcsonozhetoAuto auto = new KolcsonozhetoAuto(ujrszam, marka,gyev,utasok,tartaly,fogyasztás,kategoria);
+			
+			return auto;
+		}
 
 	}
 }
