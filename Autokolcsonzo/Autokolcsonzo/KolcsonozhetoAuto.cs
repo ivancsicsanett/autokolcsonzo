@@ -84,7 +84,23 @@ namespace Kolcsonzo
          */
 
         //KATEGÓRIA beállítás
-
+        public void kategoribeallitas()
+        {
+            int eletkor = DateTime.Now.Year - gyartasEve;
+            
+            if(eletkor<=3)
+            {
+                kategoria = 'A';
+            }
+            else if(eletkor<=10)
+            {
+                kategoria = 'B';
+            }
+            else
+            {
+                kategoria = 'C';
+            }
+        }
 
 
         //public teleTankolas() {}
